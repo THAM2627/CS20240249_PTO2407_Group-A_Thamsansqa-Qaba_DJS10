@@ -34,8 +34,34 @@ function App() {
             setIsLoading(false);
           }
         };
-    
-    
-}
+
+        fetchPosts();
+    }, []);
+  
+    // Display a loading message while fetching data
+    if (isLoading) {
+      return <div>Loading posts...</div>;
+    }
+  
+    // If an error occurred, display the error message
+    if (error) {
+      return <div>Error: {error}</div>;
+    }
+  
+    // If the fetch was successful, display the posts
+    return (
+      <div className="App">
+        <h1>Blog Posts</h1>
+        <div>
+          {posts.map((post) => (
+            <div key={post.id} style={{ borderBottom: '1px solid #ccc', marginBottom: '20px', paddingBottom: '10px' }}>
+              <h2>{post.title}</h2>
+              <p>{post.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ); 
+};
 
 export default App;
