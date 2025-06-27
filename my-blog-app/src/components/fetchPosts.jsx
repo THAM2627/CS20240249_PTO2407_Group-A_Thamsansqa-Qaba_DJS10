@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function App() {
+function fetchPosts() {
   // State to store the fetched blog posts; store errors, and loading status
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
@@ -64,4 +64,4 @@ function App() {
     ); 
 };
 
-export default App;
+export default fetchPosts;
