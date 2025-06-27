@@ -6,7 +6,36 @@ function App() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  
+    // useEffect hook to fetch data when the component mounts
+    useEffect(() => {
+        // We define an async function inside the effect to use await
+        const fetchPosts = async () => {
+          try {
+            // API for fetching posts
+            const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+            const response = await fetch(apiUrl);
+    
+            // Check if the API response is "ok". If not, throw an error.
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
+            const data = await response.json();
+            setPosts(data);
+          } catch (e) {
+            // check if it's an error object and get its message.
+            if (e instanceof Error) {
+              setError(e.message);
+            } else {
+              setError('An unknown error occurred.');
+            }
+          } finally {
+            // We set loading to false once the fetch attempt is complete.
+            setIsLoading(false);
+          }
+        };
+    
+    
 }
 
 export default App;
