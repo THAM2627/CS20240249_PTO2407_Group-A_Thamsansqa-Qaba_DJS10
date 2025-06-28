@@ -12,7 +12,7 @@ function fetchPosts() {
         const fetchPosts = async () => {
           try {
             // API for fetching posts
-            const apiUrl = 'https://jsonplaceholder.typicode.com/postss';
+            const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
             const response = await fetch(apiUrl);
     
             // Check if the API response is "ok". If not, throw an error.
@@ -53,7 +53,7 @@ function fetchPosts() {
       <div className="App">
         <h1>Blog Posts</h1>
         <div>
-          {posts.map((post,index) => (
+          {posts.slice(0, 10).map((post,index) => (
             <div key={post.id} style={{ borderBottom: '1px solid #ccc', marginBottom: '20px', paddingBottom: '10px' }}>
               <h2>{index + 1}.{post.title}</h2>
               <p>{post.body}</p>
