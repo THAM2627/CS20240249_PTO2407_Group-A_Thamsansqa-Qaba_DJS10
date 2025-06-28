@@ -53,9 +53,9 @@ function fetchPosts() {
       <div className="App">
         <h1>Blog Posts</h1>
         <div>
-          {posts.map((post) => (
+          {posts.map((post,index) => (
             <div key={post.id} style={{ borderBottom: '1px solid #ccc', marginBottom: '20px', paddingBottom: '10px' }}>
-              <h2>{post.title}</h2>
+              <h2>{index + 1}.{post.title}</h2>
               <p>{post.body}</p>
             </div>
           ))}
