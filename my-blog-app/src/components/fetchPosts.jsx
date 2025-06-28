@@ -12,12 +12,12 @@ function fetchPosts() {
         const fetchPosts = async () => {
           try {
             // API for fetching posts
-            const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+            const apiUrl = 'https://jsonplaceholder.typicode.com/postss';
             const response = await fetch(apiUrl);
     
             // Check if the API response is "ok". If not, throw an error.
             if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
+              throw new Error(`HTTP error! status:"Data Fecthing Failed"`);
             }
     
             const data = await response.json();
